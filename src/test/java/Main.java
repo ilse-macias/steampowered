@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import setup.TestBase;
 
 public class Main {
 
@@ -21,7 +22,7 @@ public class Main {
     }
 
     @Test()
-    public void Testing(){
+    public void SearchGameTest(){
         String title = driver.getTitle();
         System.out.println(title);
     }
