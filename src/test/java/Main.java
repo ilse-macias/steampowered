@@ -18,21 +18,24 @@ public class Main {
         driver = new ChromeDriver();
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
-        driver.get(Constants.PRACTICE_SELENIUM_URL);
+        driver.get(Constants.STEAM_URL);
     }
 
     @Test()
-    public void SearchGameTest(){
+    public void SearchGameTest() {
         String title = driver.getTitle();
         System.out.println(title);
 
         HomePage homePage = new HomePage(driver);
         homePage.SearchAGame("Portal 2");
 
+
     }
 
     @AfterTest()
-    public void TearDown(){
+    public void TearDown() throws InterruptedException {
+        //This is just for the humans can see the result.
+        Thread.sleep(5000);
         driver.close();
         driver.quit();
     }
