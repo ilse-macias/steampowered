@@ -2,10 +2,10 @@ import constants.Constants;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.steam.HomePage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import setup.TestBase;
 
 public class Main {
 
@@ -25,6 +25,10 @@ public class Main {
     public void SearchGameTest(){
         String title = driver.getTitle();
         System.out.println(title);
+
+        HomePage homePage = new HomePage(driver);
+        homePage.SearchAGame("Portal 2");
+
     }
 
     @AfterTest()
