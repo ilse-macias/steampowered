@@ -22,22 +22,22 @@ public class Main {
         driver.get(Constants.STEAM_URL);
     }
 
-    @Test() //done
+    @Test()
     public void searchGameTest() throws InterruptedException {
         String title = driver.getTitle();
         System.out.println(title);
 
         HomePage homePage = new HomePage(driver);
-        homePage.SearchAGame("Portal");
+        homePage.searchAGame("Portal");
 
         //This is just for the humans can see the result.
         Thread.sleep(5000);
     }
 
-    @Test //DONE
+    @Test
     public void validateTheGameIsRedirectingToThePage(){
         HomePage homePage = new HomePage(driver);
-        homePage.SearchAGame("Portal");
+        homePage.searchAGame("Portal");
 
         homePage.clickonSearchIcon();
 
@@ -48,21 +48,14 @@ public class Main {
         gamePage.validateGamePage();
     }
 
-    @Test()
+    @Test() //  NO FIXED.
     public void clearSearchFieldAndSearchAnotherGame() throws InterruptedException {
         searchGameTest();
 
         HomePage homePage = new HomePage(driver);
-        homePage.clearGame("Age of Empires");
-    }
+        homePage.searchAGame("Age of Empires");
 
-    @Test()
-    public void selectAGameOptionTest() throws InterruptedException {
-       searchGameTest();
-        GameSearchResult searchResult = new GameSearchResult(driver);
-       // WebElement searchDropDownList = driver.findElement(By.id("searchterm_options"));
-        searchResult.ListResult();
-        System.out.println("Entro?");
+        homePage.clickonSearchIcon();
     }
 
     @AfterClass()

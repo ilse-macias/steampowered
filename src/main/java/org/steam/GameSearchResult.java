@@ -23,7 +23,8 @@ public class GameSearchResult {
         PageFactory.initElements(driver, this);
     }
 
-    public void ListResult() throws InterruptedException {
+    //DON'T DELETE THIS, I NEED TO REPRODUCE THE TEST CASE, USER NEEDS TO CLICK ON AN ELEMENT FROM THE DDL.
+    public void listResult() throws InterruptedException {
         //VERIFICAR QUE LOS RESULTADOS DE LA LISTA ESTÉN VALIDOS.
         /*
         class = "match ds_collapse_flag  app_impression_tracked focus" <- ciclo para buscar element por element

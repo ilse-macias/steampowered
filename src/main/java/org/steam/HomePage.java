@@ -2,7 +2,6 @@ package org.steam;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
-import org.steam.BasePage;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,7 +24,7 @@ public class HomePage {
         PageFactory.initElements(driver, this);
     }
 
-    public void SearchAGame(String gameName) {
+    public void searchAGame(String gameName) {
         searchBar.sendKeys((gameName));
         Utilities.printMessage(gameName);
     }
@@ -41,6 +40,7 @@ public class HomePage {
         Utilities.printMessage(gameName);
     }
 
+    //This module maybe will be delete.
     public void listGame(){
         WebElement listDropDownList =
                 driver.findElement(By.id("search_suggestion_contentssearch_suggestion_contents"));
