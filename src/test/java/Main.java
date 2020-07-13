@@ -1,19 +1,19 @@
 import constants.Constants;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.steam.GameSearchResult;
 import org.steam.HomePage;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class Main {
 
     private WebDriver driver;
     private WebElement webElement;
 
-    @BeforeTest()
-    public void Setup(){
+    @BeforeClass()
+    public void setup(){
         System.setProperty(Constants.VALUE_DRIVER_SET_PROPERTY, Constants.PATH_SET_PROPERTY);
         driver = new ChromeDriver();
         driver.manage().deleteAllCookies();
@@ -22,18 +22,37 @@ public class Main {
     }
 
     @Test()
-    public void SearchGameTest() {
+    public void searchGameTest() throws InterruptedException {
         String title = driver.getTitle();
         System.out.println(title);
 
         HomePage homePage = new HomePage(driver);
-        homePage.SearchAGame("Portal 2");
+        homePage.SearchAGame("Portal");
 
-
+        //This is just for the humans can see the result.
+        Thread.sleep(5000);
+       // homePage.listGame();
     }
 
-    @AfterTest()
-    public void TearDown() throws InterruptedException {
+    @Test()
+    public void clearSearchFieldAndSearchAnotherGame() throws InterruptedException {
+        searchGameTest();
+
+        HomePage homePage = new HomePage(driver);
+        homePage.clearGame("Age of Empires");
+    }
+
+    @Test()
+    public void selectAGameOptionTest() throws InterruptedException {
+       searchGameTest();
+        GameSearchResult searchResult = new GameSearchResult(driver);
+       // WebElement searchDropDownList = driver.findElement(By.id("searchterm_options"));
+        searchResult.ListResult();
+        System.out.println("Entro?");
+    }
+
+    @AfterClass()
+    public void tearDown() throws InterruptedException {
         //This is just for the humans can see the result.
         Thread.sleep(5000);
         driver.close();

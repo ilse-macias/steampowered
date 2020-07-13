@@ -24,8 +24,19 @@ public class HomePage {
     public void SearchAGame(String gameName) {
         searchBar.sendKeys((gameName));
         Utilities.printMessage(gameName);
-        //    this.waitForElementToAppear((By) searchBar);
-        //   System.out.println("element found: " + gameName);
-        // this.webElement(searchBar).sendKeys("Portal");
+    }
+
+    public void clearGame(String gameName){
+        searchBar.clear();
+        searchBar.sendKeys(gameName);
+        Utilities.printMessage(gameName);
+    }
+
+    public void listGame(){
+        WebElement listDropDownList =
+                driver.findElement(By.id("search_suggestion_contentssearch_suggestion_contents"));
+        Utilities.printMessage("Fundiona");
+        Utilities.waitTime(listDropDownList);
+        Utilities.printMessage("Fundiona");
     }
 }
