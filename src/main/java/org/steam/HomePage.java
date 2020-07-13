@@ -16,6 +16,10 @@ public class HomePage {
     @FindBy(id = "store_nav_search_term")
     private WebElement searchBar;
 
+    @FindBy(css = "#store_search_link > img")
+    //(id = "store_search_link")
+    private WebElement searchIcon;
+
     public HomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -24,6 +28,11 @@ public class HomePage {
     public void SearchAGame(String gameName) {
         searchBar.sendKeys((gameName));
         Utilities.printMessage(gameName);
+    }
+
+    public void clickonSearchIcon(){
+        searchIcon.click();
+        Utilities.printMessage("Button clicked.");
     }
 
     public void clearGame(String gameName){

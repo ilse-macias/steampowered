@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.steam.GameSearchResult;
 import org.steam.HomePage;
+import org.steam.SearchPage;
 import org.testng.annotations.*;
 
 public class Main {
@@ -21,7 +22,7 @@ public class Main {
         driver.get(Constants.STEAM_URL);
     }
 
-    @Test()
+    @Test() //done
     public void searchGameTest() throws InterruptedException {
         String title = driver.getTitle();
         System.out.println(title);
@@ -31,7 +32,17 @@ public class Main {
 
         //This is just for the humans can see the result.
         Thread.sleep(5000);
-       // homePage.listGame();
+    }
+
+    @Test //DONE
+    public void validateTheGameIsRedirectingToThePage(){
+        HomePage homePage = new HomePage(driver);
+        homePage.SearchAGame("Portal");
+
+        homePage.clickonSearchIcon();
+
+        SearchPage searchPage = new SearchPage(driver);
+        searchPage.clickOnTheGame();
     }
 
     @Test()
@@ -52,9 +63,7 @@ public class Main {
     }
 
     @AfterClass()
-    public void tearDown() throws InterruptedException {
-        //This is just for the humans can see the result.
-        Thread.sleep(5000);
+    public void tearDown(){
         driver.close();
         driver.quit();
     }
