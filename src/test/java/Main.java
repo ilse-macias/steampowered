@@ -1,8 +1,8 @@
 import constants.Constants;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.steam.GamePage;
 import org.steam.GameSearchResult;
 import org.steam.HomePage;
 import org.steam.SearchPage;
@@ -43,6 +43,9 @@ public class Main {
 
         SearchPage searchPage = new SearchPage(driver);
         searchPage.clickOnTheGame();
+
+        GamePage gamePage = new GamePage(driver);
+        gamePage.validateGamePage();
     }
 
     @Test()
