@@ -19,12 +19,12 @@ public class GamePage {
     }
 
     public void validateGamePage(){
-        String GAME_PAGE_URL = "https://store.steampowered.com/app/620/Portal_2/";
+        String gamePageUrl = "https://store.steampowered.com/app/620/Portal_2/";
         String title = "Portal 2";
 
-        if((GAME_PAGE_URL.contains(Constants.STEAM_URL)) && (gameName.getText().contentEquals(title))){
+        if((gamePageUrl.contains(Constants.STEAM_URL)) && (gameName.getText().contentEquals(title))){
             Utilities.printMessage("Title: " + gameName.getText());
-            Utilities.printMessage("URL: " + GAME_PAGE_URL);
+            Utilities.printMessage("URL: " + gamePageUrl);
         }
     }
 }

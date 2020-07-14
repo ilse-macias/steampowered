@@ -16,7 +16,6 @@ public class HomePage {
     private WebElement searchBar;
 
     @FindBy(css = "#store_search_link > img")
-    //(id = "store_search_link")
     private WebElement searchIcon;
 
     public HomePage(WebDriver driver) {
