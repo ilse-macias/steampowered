@@ -8,6 +8,8 @@ import org.steam.SearchPage;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.util.concurrent.TimeUnit;
+
 public class SteamExecutionsTest {
 
     private WebDriver driver;
@@ -34,8 +36,9 @@ public class SteamExecutionsTest {
         homePage.searchGame(gameName);
         Assert.assertEquals(gameName, "Portal");
 
+       // driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         //This is just for the humans can see the result.
-        Thread.sleep(5000);
+       // Thread.sleep(5000);
     }
 
     @Test
