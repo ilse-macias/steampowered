@@ -6,7 +6,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 import settings.Utilities;
+
+import java.util.List;
 
 public class HomePage {
 
@@ -23,9 +26,12 @@ public class HomePage {
         PageFactory.initElements(driver, this);
     }
 
-    public void searchAGame(String gameName) {
+    public void searchGame(String gameName) {
         searchBar.sendKeys((gameName));
         Utilities.printMessage(gameName);
+
+
+        //Utilities.waitWhenTheElementIsClickeable(searchBar);
     }
 
     public void clickonSearchIcon(){
@@ -44,7 +50,7 @@ public class HomePage {
         WebElement listDropDownList =
                 driver.findElement(By.id("search_suggestion_contentssearch_suggestion_contents"));
         Utilities.printMessage("Fundiona");
-        Utilities.waitTime(listDropDownList);
+        Utilities.waitWhenTheElementIsClickeable(listDropDownList);
         Utilities.printMessage("Fundiona");
     }
 }

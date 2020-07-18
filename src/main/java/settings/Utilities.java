@@ -14,9 +14,10 @@ public class Utilities {
         System.out.println(message);
     }
 
-    public static void waitTime(WebElement element){
+    public static void waitWhenTheElementIsClickeable(WebElement element){
         WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
-        wait.until(ExpectedConditions.elementToBeClickable(element));
+        wait.until(ExpectedConditions.visibilityOf(element));
+       // wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
     public static void clearField(WebElement element){

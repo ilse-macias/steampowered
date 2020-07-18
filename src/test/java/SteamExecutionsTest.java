@@ -3,9 +3,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.steam.GamePage;
-import org.steam.GameSearchResult;
 import org.steam.HomePage;
 import org.steam.SearchPage;
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 public class SteamExecutionsTest {
@@ -25,10 +25,14 @@ public class SteamExecutionsTest {
     @Test()
     public void searchGameTest() throws InterruptedException {
         String title = driver.getTitle();
+        String gameName = "Portal";
+
         System.out.println(title);
+        Assert.assertEquals(title, "Welcome to Steam");
 
         HomePage homePage = new HomePage(driver);
-        homePage.searchAGame("Portal");
+        homePage.searchGame(gameName);
+        Assert.assertEquals(gameName, "Portal");
 
         //This is just for the humans can see the result.
         Thread.sleep(5000);
@@ -36,16 +40,18 @@ public class SteamExecutionsTest {
 
     @Test
     public void validateTheGameIsRedirectingToThePage(){
-        HomePage homePage = new HomePage(driver);
-        homePage.searchAGame("Portal");
+        String gameName = "Portal";
 
+        HomePage homePage = new HomePage(driver);
+        homePage.searchGame(gameName);
         homePage.clickonSearchIcon();
+        Assert.assertEquals(gameName, "Portal");
 
         SearchPage searchPage = new SearchPage(driver);
         searchPage.clickOnTheGame();
 
         GamePage gamePage = new GamePage(driver);
-        gamePage.validateGamePage();
+        gamePage.compareGameTitle();
     }
 
     //FIXME
@@ -54,7 +60,7 @@ public class SteamExecutionsTest {
         searchGameTest();
 
         HomePage homePage = new HomePage(driver);
-        homePage.searchAGame("Age of Empires");
+        homePage.searchGame("Age of Empires");
 
         homePage.clickonSearchIcon();
     }
