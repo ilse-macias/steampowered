@@ -1,5 +1,6 @@
 package settings;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,11 +15,6 @@ public class Utilities {
 
     public static void printMessage(String message){
         System.out.println(message);
-    }
-
-    public static void waitWhenTheElementIsClickeable(WebElement element){
-        WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
-        wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
     public static void clearField(WebElement element){

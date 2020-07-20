@@ -35,10 +35,6 @@ public class SteamExecutionsTest {
         HomePage homePage = new HomePage(driver);
         homePage.searchGame(gameName);
         Assert.assertEquals(gameName, "Portal");
-
-       // driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        //This is just for the humans can see the result.
-       // Thread.sleep(5000);
     }
 
     @Test
@@ -73,5 +69,4 @@ public class SteamExecutionsTest {
         driver.close();
         driver.quit();
     }
-
 }

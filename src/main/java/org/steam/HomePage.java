@@ -34,14 +34,10 @@ public class HomePage {
         Utilities.printMessage(gameName);
 
         WebElement listGame = driver.findElement(By.id("searchterm_options"));
-        //Utilities.waitWhenTheElementIsClickeable(listGame);
-      //  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions
-               // .frameToBeAvailableAndSwitchToIt(By.id("searchterm_options")));
                 .visibilityOfElementLocated(By.id("searchterm_options")));
-                //.visibilityOfAllElements(listGame));
     }
 
     public void clickonSearchIcon(){
@@ -53,14 +49,5 @@ public class HomePage {
         searchBar.clear();
         searchBar.sendKeys(gameName);
         Utilities.printMessage(gameName);
-    }
-
-    //This module maybe will be delete.
-    public void listGame(){
-        WebElement listDropDownList =
-                driver.findElement(By.id("search_suggestion_contentssearch_suggestion_contents"));
-        Utilities.printMessage("Fundiona");
-        Utilities.waitWhenTheElementIsClickeable(listDropDownList);
-        Utilities.printMessage("Fundiona");
     }
 }
