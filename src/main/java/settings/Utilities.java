@@ -1,20 +1,19 @@
 package settings;
 
-import org.openqa.selenium.By;
+import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.concurrent.TimeUnit;
+import org.apache.logging.log4j.Logger;
 
 public class Utilities {
 
     private static final int TIMEOUT = 5;
     private static WebDriver driver;
+    private static final Logger logger = LogManager.getLogger(Utilities.class);
 
     public static void printMessage(String message){
-        System.out.println(message);
+        System.out.println(message  + "soprln");
+        logger.error(message);
     }
 
     public static void clearField(WebElement element){
