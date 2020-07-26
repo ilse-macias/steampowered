@@ -26,7 +26,7 @@ public class SteamExecutionsTest {
         logger.error(driver);
     }
 
-    @Test()
+    @Test(priority = 1)
     public void searchGameTest() throws InterruptedException {
         String title = driver.getTitle();
         String gameName = "Portal";

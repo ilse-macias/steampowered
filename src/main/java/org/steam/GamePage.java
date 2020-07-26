@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import settings.Utilities;
 
 public class GamePage {
     private final WebDriver driver;
@@ -26,8 +25,8 @@ public class GamePage {
         String title = "Portal 2";
 
         logger.debug("Debug test");
-        Utilities.printMessage("Title: " + gameName.getText());
-        Utilities.printMessage("URL: " + gamePageUrl);
+        System.out.println("Title: " + gameName.getText());
+        System.out.println("URL: " + gamePageUrl);
 
         assert gamePageUrl.contains(Constants.STEAM_URL);
     }
