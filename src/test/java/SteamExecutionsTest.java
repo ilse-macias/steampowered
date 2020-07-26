@@ -1,4 +1,6 @@
 import constants.Constants;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,12 +10,11 @@ import org.steam.SearchPage;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-import java.util.concurrent.TimeUnit;
-
 public class SteamExecutionsTest {
 
     private WebDriver driver;
     private WebElement webElement;
+    private static final Logger logger = LogManager.getLogger(SteamExecutionsTest.class);
 
     @BeforeClass()
     public void setup(){
@@ -22,6 +23,7 @@ public class SteamExecutionsTest {
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
         driver.get(Constants.STEAM_URL);
+        logger.error(driver);
     }
 
     @Test()

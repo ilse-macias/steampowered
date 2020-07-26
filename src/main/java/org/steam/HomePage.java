@@ -1,5 +1,7 @@
 package org.steam;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
@@ -8,15 +10,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import settings.Utilities;
-
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class HomePage {
 
     private final WebDriver driver;
+    private static final Logger logger = LogManager.getLogger(HomePage.class);
 
     @FindBy(id = "store_nav_search_term")
     private WebElement searchBar;
@@ -31,7 +29,7 @@ public class HomePage {
 
     public void searchGame(String gameName) {
         searchBar.sendKeys((gameName));
-        Utilities.printMessage(gameName);
+        logger.info(gameName);
 
         WebElement listGame = driver.findElement(By.id("searchterm_options"));
 
@@ -42,12 +40,12 @@ public class HomePage {
 
     public void clickonSearchIcon(){
         searchIcon.click();
-        Utilities.printMessage("Button clicked.");
+        //Utilities.printMessage("Button clicked.");
     }
 
     public void clearGame(String gameName){
         searchBar.clear();
         searchBar.sendKeys(gameName);
-        Utilities.printMessage(gameName);
+      //  Utilities.printMessage(gameName);
     }
 }
